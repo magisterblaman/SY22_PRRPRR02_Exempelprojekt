@@ -22,6 +22,7 @@ namespace SY22_PRRPRR02_Exempelprojekt {
 			string inputPhoneNumber,
 			string inputEmail) {
 
+			Name = inputName;
 			Age = inputAge;
 			Gender = inputGender;
 			Education = inputEducation;
@@ -33,6 +34,10 @@ namespace SY22_PRRPRR02_Exempelprojekt {
 
 		public virtual decimal CalculateSalary(DateTime start, DateTime end) {
 			return 0;
+		}
+
+		public virtual string GetEmployeeInfo() {
+			return "Namn: " + Name + "\nÅlder: " + Age;
 		}
 	}
 }

@@ -81,6 +81,7 @@
     <Compile Include="SalaryUtilities.cs" />
     <Compile Include="TimeClock.cs" />
     <Compile Include="UserInterface.cs" />
+    <Compile Include="WorkedShift.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

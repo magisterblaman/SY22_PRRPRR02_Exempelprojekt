@@ -25,7 +25,21 @@ namespace SY22_PRRPRR02_Exempelprojekt {
 		}
 
 		public override decimal CalculateSalary(DateTime start, DateTime end) {
-			return 0;
+			decimal result = 0;
+
+			TimeSpan span = end - start;
+
+			result = (decimal)span.TotalHours * HourlySalary;
+
+			if (end.DayOfWeek == DayOfWeek.Sunday) {
+				result += OB * (decimal)span.TotalHours;
+			}
+
+			return result;
+		}
+
+		public override string GetEmployeeInfo() {
+			return "Timanställd\nNamn: " + Name + "\nÅlder: " + Age + "\nTimlön: " + HourlySalary + "kr\nOB: " + OB + "kr";
 		}
 	}
 }

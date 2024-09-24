@@ -25,7 +25,23 @@ namespace SY22_PRRPRR02_Exempelprojekt {
 		}
 
 		public override decimal CalculateSalary(DateTime start, DateTime end) {
-			return 0;
+			decimal result = 0;
+
+			TimeSpan span = end - start;
+			int hoursPerMonth = 8 * 22;
+			decimal salaryFraction = (decimal)span.TotalHours / hoursPerMonth;
+			result = salaryFraction * BaseSalary;
+
+			if (span.TotalHours > 10) {
+				decimal overtimeWorked = (decimal)span.TotalHours - 10;
+				result += overtimeWorked * OB;
+			}
+
+			return result;
+		}
+
+		public override string GetEmployeeInfo() {
+			return "Heltidsanställd\nNamn: " + Name + "\nÅlder: " + Age + "\nBaslön: " + BaseSalary + "kr\nOB: " + OB + "kr";
 		}
 	}
 }
